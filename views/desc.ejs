@@ -1,0 +1,41 @@
+<% include ./partials/header.ejs %>
+<div class="container">
+        <header class="jumbotron">
+            <h1> Welcome to Camps !</h1>
+            <p>Select the best campsites picked by the best of the experts in our team ! Have a Great Vacation !</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/camps/comment/<%= c._id %>">Add New Comment</a>
+                <a class="btn btn-primary btn-large" href = "/camps">View Campgrounds</a>
+            </p>
+            
+        </header>
+    
+<div class="row">
+    <div class="col-md-2 col-sm-1 col-xs-1"></div>
+    <div class="col-md-8 col-sm-10 col-xs-10">
+        <div class="panel panel-default">
+            <div class="panel-heading"><%= c.name %></div>
+            <div class="panel-body">
+            <center>
+                    <img class="img-responsive" src = "<%= c.url %>">
+            </center>
+            <p><%= c.description %></p>
+            </div>
+            <div class="panel-footer">
+                <center>
+                    <h4><b>Comments</b></h4>
+                </center>
+                <% c.comments.forEach((x)=>{ %>
+                    <li>
+                        <b><%= x.author  %> : </b> <%= x.content %> 
+                    </li>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-sm-1 col-xs-1"></div>
+
+</div>
+      
+</div>
+<% include ./partials/footer.ejs %>

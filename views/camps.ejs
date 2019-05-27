@@ -1,0 +1,24 @@
+<% include ./partials/header.ejs %>
+<div class = "container">
+    <header class="jumbotron"> 
+        <h1>Welcome to Home Page !</h1>
+        <a class = "btn btn-primary btn-large" href="/">Go to Homepage!</a>
+     </header>
+
+    <div class="row" style = "display: flex;flex-wrap: wrap">
+        <% camps.forEach((camp)=>{ %>
+            <div class = "col-md-3 col-sm-6">
+                <div class="thumbnail"> 
+                    <img class = "img-responsive" src= <%= camp.url %> >
+                    <center>
+                        <h4 class="caption"><%= camp.name %></h4>
+                        <a class = "btn btn-primary btn-large"  href = "camps/<%= camp._id %>/edit">Edit</a>
+                        <a class = "btn btn-primary btn-large"  href = "camps/<%= camp._id %>">Details</a>
+                    </center>  
+                </div>
+            </div>
+        <% }) %>
+</div>
+</div>
+
+<% include ./partials/footer.ejs %>
